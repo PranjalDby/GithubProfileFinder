@@ -1,167 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GitHub Profile Finder</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GitHub Profile Finder</title>
 
-  <div class="app">
-
-    <!-- Background Effects -->
-    <div class="grid-bg"></div>
-
-    <div class="content">
-
-      <!-- ===== HEADER ===== -->
-      <div class="header">
-        <div class="header-label">// tool</div>
-        <h1>GitHub <br/> <span>Profile</span> Finder</h1>
-      </div>
-
-      <!-- ===== SEARCH BAR ===== -->
-      <form class="search-wrap">
-        <input
-          class="search-input"
-          type="text"
-          placeholder="Enter a GitHub username..."
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap"
+            rel="stylesheet"
         />
-        <button class="search-btn" type="submit">Search</button>
-      </form>
+    </head>
 
-      <!-- ===== HINT (shown before any search) ===== -->
-      <div class="hint">Search for any GitHub user above</div>
-
-      <!-- ===== LOADING STATE ===== -->
-      <div class="loading">Fetching profile...</div>
-
-      <!-- ===== ERROR STATE ===== -->
-      <div class="error">⚠ User not found.</div>
-
-      <!-- ===== PROFILE CARD (shown after successful search) ===== -->
-      <div class="profile-card">
-
-        <!-- Profile Top: Avatar + Info -->
-        <div class="profile-top">
-
-          <!-- Avatar -->
-          <div class="avatar-wrap">
-            <img
-              class="avatar"
-              src="https://avatars.githubusercontent.com/u/9919?v=4"
-              alt="username"
-            />
-            <div class="avatar-accent"></div>
-          </div>
-
-          <!-- Info -->
-          <div class="profile-info">
-            <div class="profile-name">Linus Torvalds</div>
-            <div class="profile-login">@torvalds</div>
-            <div class="profile-bio">
-              Creator of Linux and Git. Just a random hacker.
-            </div>
-
-            <!-- Meta: Location, Website, Twitter -->
-            <div class="profile-meta">
-              <span class="meta-item">
-                <!-- location icon -->
-                📍 Portland, OR
-              </span>
-              <span class="meta-item">
-                <!-- link icon -->
-                🔗 example.com
-              </span>
-              <span class="meta-item">
-                <!-- twitter icon -->
-                🐦 @username
-              </span>
-            </div>
-
-          </div>
-        </div>
-        <!-- /profile-top -->
-
-        <!-- Stats Row: Repos / Followers / Following -->
-        <div class="stats-row">
-
-          <div class="stat">
-            <div class="stat-num">42</div>
-            <div class="stat-label">Repos</div>
-          </div>
-
-          <div class="stat">
-            <div class="stat-num">230k</div>
-            <div class="stat-label">Followers</div>
-          </div>
-
-          <div class="stat">
-            <div class="stat-num">6</div>
-            <div class="stat-label">Following</div>
-          </div>
-
-        </div>
-        <!-- /stats-row -->
-
-        <!-- Top Repositories -->
-        <div class="repos-section">
-          <div class="repos-title">Top Repositories</div>
-
-          <div class="repos-grid">
-
-            <!-- Single Repo Card (repeated for each repo) -->
-            <a class="repo-card" href="#" target="_blank">
-              <div class="repo-name">linux</div>
-              <div class="repo-desc">
-                Linux kernel source tree
-              </div>
-              <div class="repo-footer">
-                <span>
-                  <span class="lang-dot"></span>
-                  C
-                </span>
-                <span>⭐ 180k</span>
-                <span>🍴 52k</span>
-              </div>
-            </a>
-
-            <a class="repo-card" href="#" target="_blank">
-              <div class="repo-name">uemacs</div>
-              <div class="repo-desc">
-                Random version of microemacs
-              </div>
-              <div class="repo-footer">
-                <span>
-                  <span class="lang-dot"></span>
-                  C
-                </span>
-                <span>⭐ 1.2k</span>
-                <span>🍴 320</span>
-              </div>
-            </a>
-
-            <!-- More repo cards go here... -->
-
-          </div>
-          <!-- /repos-grid -->
-
-        </div>
-        <!-- /repos-section -->
-
-        <!-- View on GitHub Link -->
-        <a class="view-gh" href="#" target="_blank">
-          View full profile on GitHub →
-        </a>
-
-      </div>
-      <!-- /profile-card -->
-
-    </div>
-    <!-- /content -->
-
-  </div>
-  <!-- /app -->
-
-</body>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
+    </body>
 </html>

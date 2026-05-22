@@ -1,19 +1,24 @@
-/* ===== IMPORT FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap');
-
 /* ===== RESET ===== */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* ===== BASE ===== */
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  background: #0a0a0f;
-  color: #e8e8f0;
-  font-family: 'Space Mono', monospace;
-  min-height: 100vh;
+    background: #0a0a0f;
+    color: #e8e8f0;
+    font-family: monospace;
 }
 
 /* ===========================
@@ -21,48 +26,52 @@ body {
 =========================== */
 
 .app {
-  min-height: 100vh;
-  background: #0a0a0f;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 20px 40px;
-  position: relative;
-  overflow: hidden;
+    min-height: 100vh;
+    background: #0a0a0f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 40px;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Purple glow at the top */
 .app::before {
-  content: '';
-  position: fixed;
-  top: -200px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
+    content: "";
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(
+        circle,
+        rgba(99, 102, 241, 0.12) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* Subtle grid pattern background */
+/* Grid background */
 .grid-bg {
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  z-index: 0;
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* Main content wrapper */
+/* Main content */
 .content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 720px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 720px;
 }
 
 /* ===========================
@@ -70,30 +79,29 @@ body {
 =========================== */
 
 .header {
-  text-align: center;
-  margin-bottom: 48px;
+    text-align: center;
+    margin-bottom: 48px;
 }
 
 .header-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: #6366f1;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #6366f1;
+    text-transform: uppercase;
+    margin-bottom: 12px;
 }
 
 .header h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1;
-  color: #f0f0ff;
-  letter-spacing: -2px;
+    font-family: sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1;
+    color: #f0f0ff;
+    letter-spacing: -2px;
 }
 
 .header h1 span {
-  color: #6366f1;
+    color: #6366f1;
 }
 
 /* ===========================
@@ -101,95 +109,97 @@ body {
 =========================== */
 
 .search-wrap {
-  display: flex;
-  gap: 0;
-  margin-bottom: 48px;
-  border: 1px solid rgba(99,102,241,0.3);
-  border-radius: 4px;
-  overflow: hidden;
-  transition: border-color 0.2s;
+    display: flex;
+    gap: 0;
+    margin-bottom: 48px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s;
 }
 
 .search-wrap:focus-within {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 .search-input {
-  flex: 1;
-  background: rgba(255,255,255,0.03);
-  border: none;
-  padding: 16px 20px;
-  font-family: 'Space Mono', monospace;
-  font-size: 14px;
-  color: #e8e8f0;
-  outline: none;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: none;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #e8e8f0;
+    outline: none;
 }
 
 .search-input::placeholder {
-  color: rgba(232,232,240,0.3);
+    color: rgba(232, 232, 240, 0.3);
 }
 
 .search-btn {
-  background: #6366f1;
-  border: none;
-  padding: 16px 28px;
-  font-family: 'Space Mono', monospace;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #fff;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: background 0.2s;
+    background: #6366f1;
+    border: none;
+    padding: 16px 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.2s;
 }
 
 .search-btn:hover {
-  background: #4f46e5;
+    background: #4f46e5;
 }
 
 .search-btn:disabled {
-  background: #3a3a5c;
-  cursor: not-allowed;
+    background: #3a3a5c;
+    cursor: not-allowed;
 }
 
 /* ===========================
-   STATES: LOADING / ERROR / HINT
+   STATES
 =========================== */
 
 .loading {
-  text-align: center;
-  padding: 48px;
-  color: rgba(232,232,240,0.4);
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  animation: pulse 1.5s ease-in-out infinite;
+    text-align: center;
+    padding: 48px;
+    color: rgba(232, 232, 240, 0.4);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 1;   }
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 .error {
-  text-align: center;
-  padding: 32px;
-  border: 1px solid rgba(239,68,68,0.3);
-  border-radius: 4px;
-  background: rgba(239,68,68,0.05);
-  color: #f87171;
-  font-size: 13px;
-  letter-spacing: 1px;
+    text-align: center;
+    padding: 32px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 4px;
+    background: rgba(239, 68, 68, 0.05);
+    color: #f87171;
+    font-size: 13px;
 }
 
 .hint {
-  text-align: center;
-  color: rgba(232,232,240,0.2);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: 32px;
+    text-align: center;
+    color: rgba(232, 232, 240, 0.2);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 32px;
 }
 
 /* ===========================
@@ -197,240 +207,239 @@ body {
 =========================== */
 
 .profile-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(99,102,241,0.2);
-  border-radius: 4px;
-  overflow: hidden;
-  animation: slideUp 0.4s ease;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    animation: slideUp 0.4s ease;
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0);    }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
-/* --- Profile Top Section --- */
 
 .profile-top {
-  padding: 36px;
-  display: flex;
-  gap: 28px;
-  align-items: flex-start;
-  border-bottom: 1px solid rgba(99,102,241,0.15);
+    padding: 36px;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.15);
 }
 
-/* Avatar */
 .avatar-wrap {
-  position: relative;
-  flex-shrink: 0;
+    position: relative;
+    flex-shrink: 0;
 }
 
 .avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 4px;
-  display: block;
-  border: 2px solid rgba(99,102,241,0.4);
+    width: 96px;
+    height: 96px;
+    border-radius: 4px;
+    display: block;
+    border: 2px solid rgba(99, 102, 241, 0.4);
 }
 
-/* Small decorative square on avatar */
 .avatar-accent {
-  position: absolute;
-  bottom: -4px;
-  right: -4px;
-  width: 16px;
-  height: 16px;
-  background: #6366f1;
-  border-radius: 2px;
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    background: #6366f1;
+    border-radius: 2px;
 }
 
-/* Info beside avatar */
 .profile-info {
-  flex: 1;
-  min-width: 0;
+    flex: 1;
+    min-width: 0;
 }
 
 .profile-name {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: #f0f0ff;
-  letter-spacing: -1px;
-  margin-bottom: 4px;
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #f0f0ff;
+    margin-bottom: 4px;
 }
 
 .profile-login {
-  font-size: 12px;
-  color: #6366f1;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
+    font-size: 12px;
+    color: #6366f1;
+    margin-bottom: 12px;
 }
 
 .profile-bio {
-  font-size: 13px;
-  color: rgba(232,232,240,0.6);
-  line-height: 1.6;
-  margin-bottom: 16px;
+    font-size: 13px;
+    color: rgba(232, 232, 240, 0.6);
+    line-height: 1.6;
+    margin-bottom: 16px;
 }
 
-/* Location / website / twitter row */
 .profile-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .meta-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  color: rgba(232,232,240,0.5);
-  letter-spacing: 0.5px;
-}
-
-.meta-item svg {
-  color: #6366f1;
-  flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: rgba(232, 232, 240, 0.5);
 }
 
 /* ===========================
-   STATS ROW
+   STATS
 =========================== */
 
 .stats-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-bottom: 1px solid rgba(99,102,241,0.15);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.15);
 }
 
 .stat {
-  padding: 24px;
-  text-align: center;
-  border-right: 1px solid rgba(99,102,241,0.15);
+    padding: 24px;
+    text-align: center;
+    border-right: 1px solid rgba(99, 102, 241, 0.15);
 }
 
 .stat:last-child {
-  border-right: none;
+    border-right: none;
 }
 
 .stat-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #6366f1;
-  letter-spacing: -1px;
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #6366f1;
 }
 
 .stat-label {
-  font-size: 10px;
-  color: rgba(232,232,240,0.4);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: 4px;
+    font-size: 10px;
+    color: rgba(232, 232, 240, 0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
 }
 
 /* ===========================
-   REPOSITORIES SECTION
+   REPOS
 =========================== */
 
 .repos-section {
-  padding: 32px 36px;
+    padding: 32px 36px;
 }
 
 .repos-title {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(232,232,240,0.4);
-  margin-bottom: 20px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(232, 232, 240, 0.4);
+    margin-bottom: 20px;
 }
 
 .repos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
 }
 
-/* Individual repo card */
 .repo-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(99,102,241,0.15);
-  border-radius: 4px;
-  padding: 16px;
-  text-decoration: none;
-  display: block;
-  transition: border-color 0.2s, background 0.2s;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: 4px;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
 }
 
 .repo-card:hover {
-  border-color: rgba(99,102,241,0.5);
-  background: rgba(99,102,241,0.05);
+    border-color: rgba(99, 102, 241, 0.5);
+    background: rgba(99, 102, 241, 0.05);
 }
 
 .repo-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: #a5b4fc;
-  margin-bottom: 6px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    font-size: 13px;
+    font-weight: 700;
+    color: #a5b4fc;
+    margin-bottom: 6px;
 }
 
 .repo-desc {
-  font-size: 11px;
-  color: rgba(232,232,240,0.45);
-  line-height: 1.5;
-  margin-bottom: 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 33px;
+    font-size: 11px;
+    color: rgba(232, 232, 240, 0.45);
+    line-height: 1.5;
+    margin-bottom: 12px;
 }
 
 .repo-footer {
-  display: flex;
-  gap: 12px;
-  font-size: 10px;
-  color: rgba(232,232,240,0.35);
-  letter-spacing: 0.5px;
+    display: flex;
+    gap: 12px;
+    font-size: 10px;
+    color: rgba(232, 232, 240, 0.35);
 }
 
-.repo-footer span {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-/* Language color dot */
 .lang-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #6366f1;
-  flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #6366f1;
 }
 
 /* ===========================
-   VIEW ON GITHUB LINK
+   VIEW ON GITHUB
 =========================== */
 
 .view-gh {
-  display: block;
-  text-align: center;
-  padding: 14px;
-  border-top: 1px solid rgba(99,102,241,0.15);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(232,232,240,0.4);
-  text-decoration: none;
-  transition: color 0.2s, background 0.2s;
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border-top: 1px solid rgba(99, 102, 241, 0.15);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(232, 232, 240, 0.4);
+    text-decoration: none;
 }
 
 .view-gh:hover {
-  color: #6366f1;
-  background: rgba(99,102,241,0.05);
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.05);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+    .profile-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+
+    .repos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-wrap {
+        flex-direction: column;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
 }
