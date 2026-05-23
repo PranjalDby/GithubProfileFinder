@@ -2,7 +2,8 @@ name: Github-workflow
 run-name: ${{ github.actor }} runs actions
 on:
   push:
-
+    branches:
+      - main
 jobs:
   upgrade-packages:
     runs-on: ubuntu-latest
