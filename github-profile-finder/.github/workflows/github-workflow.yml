@@ -1,5 +1,5 @@
 name: Github-workflow
-runs-name: ${{ github.actor }} runs-actions
+run-name: ${{ github.actor }} runs-actions
 on: [push]
 jobs:
   upgrade-packages:
