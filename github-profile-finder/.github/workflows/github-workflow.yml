@@ -14,6 +14,6 @@ jobs:
           node-version: '26'
 
       - run: npm install -g @bemedev/upgrade-npm-package
-      - run: upgrade-npm-package -v -p npm
+      - run: upgrade-npm-package -v
 
 
