@@ -12,11 +12,10 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: Update NPM packages
-         uses: actions/checkout@v6
-         uses: actions/setup-node@v4
-         with:
-           node-version: "26"
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "26"
       - run: "echo upgrading npm packages to their latest versions...."
       - run: npm install -g @bemedev/upgrade-npm-package
       - run: upgrade-npm-package -v
