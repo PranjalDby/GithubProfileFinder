@@ -39,6 +39,5 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
-          file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERUSER }}/app:latest
