@@ -38,6 +38,6 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v7
         with:
-          context: "{{DefaultContext}}:github-profile-finder"
+          context: ./github-profile-finder
           push: true
-          tags: user/app:latest
+          tags: ${{ secrets.DOCKERUSER }}/app:latest
