@@ -5,16 +5,37 @@ on:
     branches:
       - main
 jobs:
+  # firstly we will upgrade the npm packages to their latest versions using the upgrade-npm-package package
   upgrade-packages:
-    runs-on: ubuntu-latest
+    # this job will only run when there is a push to the main branch
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
-          node-version: '26'
-
+          node-version: "26"
+      - run: "echo upgrading npm packages to their latest versions...."
       - run: npm install -g @bemedev/upgrade-npm-package
       - run: upgrade-npm-package -v
 
+  # building the docker image and pushing it to the docker hub
+  #
+  docker-build-and-push:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    needs: upgrade-packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Docker
+      - uses: docker/login-action@v4
+        with:
+          username: ${{ vars.DOCKERUSER }}
+          password: ${{ vars.DOCKERSECRET }}
 
+      - name: Build and Push
+      - uses: docker/build-push-action@v7
+        with:
+          context: "{{DefaultContext}}:mysubdir"
+          push: true
+          tags: user/app:latest

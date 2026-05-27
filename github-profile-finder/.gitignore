@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Pat ignore
+/GithubProfileFinder/.github/workflows/*.txt
