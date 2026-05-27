@@ -23,6 +23,7 @@ jobs:
   # building the docker image and pushing it to the docker hub
   #
   docker-build-and-push:
+    environment: docker-login
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     needs: upgrade-packages
     runs-on: ubuntu-latest
