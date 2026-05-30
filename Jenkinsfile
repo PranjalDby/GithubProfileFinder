@@ -5,9 +5,8 @@ pipeline {
 
         stage ('Build') {
             steps {
-                echo 'Building demo .... ☺️'
+            echo 'Building demo ....'
             }
-
         }
 
     }

@@ -1,17 +1,6 @@
-<<<<<<< HEAD
 pat.txt
 id_e25519_jenkins
 id_e25519_jenkins.pub
 *.pub
 *.pem
 id_*
->>>>>>> 045785d (fixed gitignore)
-=======
-id_rsa
-id_rsa.pub
-id_ed25519
-id_ed25519.pub
-*.pem
-*.pub
-*.key
->>>>>>> f8e774d (fixed gitignore twice)
