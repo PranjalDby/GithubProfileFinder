@@ -1,1 +1,8 @@
 pat.txt
+id_e25519_jenkins
+<<<<<<< HEAD
+id_e25519_jenkins.pub
+*.pub
+*.pem
+id_*
+>>>>>>> 045785d (fixed gitignore)
